@@ -1,7 +1,5 @@
 import React from 'react';
 
-
-
 function Fruit ({name, emoji, counter, setCounter}) {
     return (
         <article>
@@ -9,6 +7,7 @@ function Fruit ({name, emoji, counter, setCounter}) {
             <button
                 type="button"
                 onClick={() => setCounter (counter + 1)}
+                className={counter === 0 ? 'color-white' : 'color-green'}
                 >
              +
             </button>
@@ -16,10 +15,13 @@ function Fruit ({name, emoji, counter, setCounter}) {
             <button
                 type="button"
                 disabled={counter === 0 }
-                onClick={() => setCounter (counter - 1)} >
+                onClick={() => setCounter (counter - 1)}
+                className= {counter === 0 ? 'color-red' : 'color-white'}
+            >
              -
             </button>
-            <p>{counter}</p>
+            <p >Het aantal bestelde {name} is </p>
+            <p className={counter === 0 ? 'font-color-red' : 'font-color-green'}>{counter}</p>
         </article>
     );
 }
